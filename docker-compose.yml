@@ -5,8 +5,8 @@ version: "3.7"
 services:
   # Service pertama yaitu item-app
   item-app:
-    # Menggunakan image dari Docker Hub yang telah di unggah
-    image: zidanpasya/item-app:v1
+    # Menggunakan image dari Github Package yang telah di unggah
+    image: ghcr.io/zidanpasya/item-app:v1
 
     # Melakukan port mapping agar dapat diakses dari port 80
     ports:
