@@ -1,0 +1,30 @@
+# Menggunakan Docker Compose versi 3.7
+version: "3.7"
+
+# Memiliki 2 buah service yaitu item-app dan item-db
+services:
+  # Service pertama yaitu item-app
+  item-app:
+    # Menggunakan image dari Docker Hub yang telah di unggah
+    image: zidanpasya/item-app:v1
+
+    # Melakukan port mapping agar dapat diakses dari port 80
+    ports:
+      - 80:8080
+
+    restart: always
+  
+  # Service kedua yaitu item-db
+  item-db:
+    # Menggunakan image mongo yang diambil dari Docker Hub
+    image: mongo:3
+
+    # Memakai volume bernama app-db dengan target /data/db di container
+    volumes:
+      - app-db:/data/db
+
+    restart: always
+
+# Membuat volume baru bernama app-db
+volumes:
+  app-db:
